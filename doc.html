@@ -1,0 +1,135 @@
+<html>
+  <!-- Do not add doctype here, it breaks the css -->
+  <head>
+    <title>MicroDraw Trainable Segmentation doc</title>
+    <link
+    rel="icon"
+    sizes="any"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Ccircle cx='5' cy='5' r='5' fill='LightGreen'/%3E%3C/svg%3E"
+   >
+
+   <style>
+    #menu {
+      float: right;
+      margin-right: 10px;
+    }
+    #menu img {
+      margin-left: 15px;
+    }
+    .mui {
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      font-weight: 200;
+    }
+    #text-container{
+      max-width: 700px;
+      position: absolute;
+      left: 50%;
+      transform: translateX( -50% );
+      margin-top: 20px;
+    }
+    .doc {
+      font-family: "Roboto Mono", monospace;
+      font-size: 14px;
+      font-weight: 100;
+      line-height: 1.5rem;
+      text-indent: -0.5rem;
+      color: white;
+      text-align: left;
+    }
+    h1{
+      font-family: "Roboto Mono", monospace;
+      font-weight: 500;
+    }
+    img.button {
+      width: 0.9rem;
+      height: 0.9rem;
+      margin: 8px 2px;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+    img.button:hover {
+      opacity: 0.5;
+    }
+    img.icon {
+      width: 1rem;
+      height: 1rem;
+      margin: 4px 2px;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+    </style>
+  </head>
+
+  <body>
+
+    <div id="header">
+      <!-- Top-right menu bar -->
+      <div id="menu">
+        <img id="doc" class="button" title="documentation" src="img/doc.svg"/>
+        <a href="https://github.com/neuroanatomy/trainable_segmentation/issues" target="_blank"><img id="bug" class="button" title="report a bug" src="img/bug.svg"/></a>
+        <a href="https://github.com/neuroanatomy/trainable_segmentation" target="_blank"><img id="github" class="button" title="join our github project" style="width:15px;height:15px" src="img/github.svg"/></a>
+      </div>
+
+      <!-- Left-top logo -->
+      <div style="display:inline-block;margin:10px">
+        <a href="/" style="text-decoration:none">
+          <span style="font-family: 'Montserrat', sans-serif;color:white;font-size:24px">MicroDraw Trainable Segmentation</span>
+        </a>
+      </div>
+    </div>
+
+
+    <!-- Documentation -->
+    <div id="text-container" style="display: flex">
+      <div class="doc">
+        <h1>Documentation</h1>
+        <p>
+          <b>MicroDraw URL.</b> Provide the link to your MicroDraw project and the slice where you do the segmentations. You can segment in one slice a few regions that you consider helpful for the classifier to train on your data, and you can iteratively modify your segmentation.
+        </p>
+        <p>
+          <b>Token.</b> Provide your access token for the MicroDraw project. Log into MicroDraw and go to https://microdraw.pasteur.fr/token, the project where you have the segmenttations, eventually the token. Iterate until you are happy. Then send the output segmentation back t MicroDraw.
+        </p>
+        <p>
+          <b>Send to MicroDraw.</b> Sends the resulting segmentation from the random forest classifier back to your MicroDraw project.
+        </p>
+        
+        <img style="max-width:700px;padding-top:30px;padding-bottom:3px;padding-right:25px;" src="https://raw.githubusercontent.com/neuroanatomy/trainable_segmentation/master/img/MDrandomForest_fig1_dark.png" alt=""/>
+        <p style="padding-left:26px;padding-right:26px;font-size:12px;text-indent: 0rem;">
+          <b>MicroDraw Trainable Segmentation interface & workflow.</b> Provide the link to your MicroDraw project with the segmentations and your access token. Edit your segmentations and iterate until you are happy. Then send the output segmentation back to MicroDraw. <br />
+        </p>
+        <img style="max-width:700px;padding-top:30px;padding-bottom:3px;padding-left:25px;padding-right:25px;" src="https://raw.githubusercontent.com/neuroanatomy/trainable_segmentation/master/img/MDrandomForest_fig2_dark.png" alt=""/>
+        <p style="padding-left:26px;padding-right:26px;font-size:12px;text-indent: 0rem;">
+          <b>MicroDraw Trainable Segmentation viewer.</b> The slice from MicroDraw together with its original segmentation. The output from the random forest segmentation.<br />
+        </p>
+        <img style="max-width:700px;padding-top:30px;padding-bottom:3px;padding-left:25px;padding-right:25px;" src="https://raw.githubusercontent.com/neuroanatomy/trainable_segmentation/master/img/MDrandomForest_fig3_dark.png" alt=""/>
+        <p style="padding-left:26px;padding-right:26px;font-size:12px;text-indent: 0rem;">
+          <b>Segmentation result on MicroDraw.</b> Once you are happy, send the segmentations back to MicroDraw. This will give you a mask like shown in this image.<br /><br /><br />
+        </p>
+
+      </div>
+
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.1.1/dist/jquery.min.js"></script>
+    <!-- <script>window.jQuery || document.write('<script src="http://localhost/libs/jquery/3.1.1/jquery.min.js"><\/script>')</script> -->
+
+    <script src="https://cdn.jsdelivr.net/gh/r03ert0/muijs/mui.js"></script>
+    <!-- <script>window.MUI || document.write('<script src="http://localhost/muijs/mui.js"><\/script>')</script> -->
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/r03ert0/muijs/mui.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="http://localhost/muijs/mui.css" /> -->
+
+    <link rel="stylesheet" type="text/css" href="MDrandomforest.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,500" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200" rel="stylesheet" />
+
+
+    <script>
+      initUI(MUI);
+    </script>
+
+  </body>
+</html>
