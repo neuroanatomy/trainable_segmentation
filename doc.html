@@ -37,6 +37,11 @@
       color: white;
       text-align: left;
     }
+    a {
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+    }
     h1{
       font-family: "Roboto Mono", monospace;
       font-weight: 500;
@@ -88,7 +93,7 @@
           <b>MicroDraw URL.</b> Provide the link to your MicroDraw project and the slice where you do the segmentations. You can segment in one slice a few regions that you consider helpful for the classifier to train on your data, and you can iteratively modify your segmentation.
         </p>
         <p>
-          <b>Token.</b> Provide your access token for the MicroDraw project. Log into MicroDraw and go to https://microdraw.pasteur.fr/token, the project where you have the segmenttations, eventually the token. Iterate until you are happy. Then send the output segmentation back t MicroDraw.
+          <b>Token.</b> Provide your access token for the MicroDraw project. Log into MicroDraw and go to <a href="https://microdraw.pasteur.fr/token" target="_blank">https://microdraw.pasteur.fr/token</a>. Your token will be valid for 24h.
         </p>
         <p>
           <b>Send to MicroDraw.</b> Sends the resulting segmentation from the random forest classifier back to your MicroDraw project.
