@@ -1,0 +1,47 @@
+body {
+  background: #222;
+}
+.cpoint {
+  position: absolute;
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #146d84;
+  border-radius: 0.5rem;
+  transform: translate(-50%,-50%);
+}
+.cpoint:hover {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 0.75rem;
+}
+.cpoint.selected {
+  position: absolute;
+  display: block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 0.75rem;
+  transform: translate(-50%,-50%);
+}
+table {
+  border-spacing: 0;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 200;
+
+}
+td {
+  padding: 5px;
+}
+tr.selected {
+  background: #ddd;
+}
+
+#tools,
+#overlay,
+#saveMask,
+#loadControlPoints,
+#saveControlPoints {
+  display: none;
+}
