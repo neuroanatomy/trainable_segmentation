@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Pyodide test</title>
+      <script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js"></script>
+  </head>
+  <body>
+
+    <span>Enter URL of MicroDraw project with segmentation hints</span>
+    <br />
+
+    <input
+      type="text"
+      id="md_url"
+      style="width: 600px"
+      value="https://microdraw.pasteur.fr/data?source=https://microdraw.pasteur.fr/bigbrain/bigbrain.json&slice=0"
+    />
+    <br />
+
+    <select id="select">
+      <option disabled selected value>Select an option</option>
+      <option>https://microdraw.pasteur.fr/data?source=https://microdraw.pasteur.fr/bigbrain/bigbrain.json&slice=0</option>
+      <option>https://microdraw.pasteur.fr/data?source=https://microdraw.pasteur.fr/ferret1/ferret.json&project=SegmentFIIND&slice=29</option>
+      <option>https://microdraw.pasteur.fr/data?source=https://bigbrain-ftp.loris.ca/bigbrain-ftp/BigBrainRelease.2015/MicroDraw/MicroDraw_Coronal.json&project=BigBrain20um&slice=3702</option>
+    </select>
+    <script>
+    const selectElem = document.getElementById('select')
+    selectElem.addEventListener('change', () => {
+      const index = selectElem.selectedIndex;
+      document.querySelector('input').value = document.querySelectorAll('option')[index].innerText;
+    })
+    </script>
+    <br />
+
+    <button onclick="getSegmentationHints();">Start</button>
+    <button onclick="processAllSlices();">Process All</button>
+    <br />
+
+    <div style="position:relative">
+      <div id="osd" style="flex:1;top:0;left:0"></div>
+      <canvas id="pjs" hidpi="off" style="position:absolute;top:0;left:0"></canvas>
+    </div>
+
+    <div id="log"></div>
+
+    <img id="py_img" />
+
+    <script src="https://cdn.jsdelivr.net/npm/openseadragon@2.4/build/openseadragon/openseadragon.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.15/paper-core.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
